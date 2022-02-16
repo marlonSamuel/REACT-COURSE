@@ -9,6 +9,8 @@ const path = require('path');
 const socketio = require('socket.io');
 const Sockets = require('./socket');
 
+const cors = require('cors');
+
 //initialize server configuraciont
 class Server {
 
@@ -28,6 +30,9 @@ class Server {
     middlewares(){
         //deploy public directory
         this.app.use( express.static( path.resolve(__dirname,'../public')));
+
+        //unable cors
+        this.app.use( cors() );
     }
 
     //function to iniailize socket
